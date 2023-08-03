@@ -61,6 +61,13 @@ check_uptime() {
     uptime
 }
 
+# Function to check error logs
+check_error_logs() {
+    echo "-------------------------"
+    echo "Checking error logs..."
+    logread | grep warn
+}
+
 # Function to display the design "Datto Netrunners"
 display_datto_netrunners() {
     cat << "EOF"
@@ -70,7 +77,7 @@ display_datto_netrunners() {
 | , ` | /'__`\| |  | ,  / ( ) ( )/' _ `\/' _ `\ /'__`\( '__)/',__)
 | |`\ |(  ___/| |_ | |\ \ | (_) || ( ) || ( ) |(  ___/| |   \__, \
 (_) (_)`\____)`\__)(_) (_)`\___/'(_) (_)(_) (_)`\____)(_)   (____/
-By Noor Shaheed, Datto, Kaseya. 07/20/2023      Netrunners TS tool V.01     
+By Noor Shaheed, Datto, Kaseya. 07/20/2023      Netrunners TS tool V.01  
                                                                       
 EOF
 }
@@ -82,7 +89,9 @@ main() {
 
     # Run the functions
     scan_ports
+    echo "-------------------------"
     ping_8_8_8_8
+    echo "-------------------------"
     run_mtr_test
     echo "-------------------------"
     run_netstat
@@ -94,6 +103,8 @@ main() {
     check_temperature
     echo "-------------------------"
     check_uptime
+    echo "-------------------------"
+    check_error_logs
 }
 
 # Call the main function
