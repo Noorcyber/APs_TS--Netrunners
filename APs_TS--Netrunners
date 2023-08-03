@@ -47,19 +47,22 @@ check_temperature() {
     cat /sys/class/thermal/thermal_zone0/temp
 }
 
+# Function to check access point uptime
+check_uptime() {
+    echo "Checking access point uptime..."
+    uptime
+}
+
 # Function to display the design "Datto Netrunners"
 display_datto_netrunners() {
     cat << "EOF"
-
  _   _         _    ___                                           
 ( ) ( )       ( )_ |  _`\                                         
 | `\| |   __  | ,_)| (_) ) _   _   ___    ___     __   _ __   ___ 
 | , ` | /'__`\| |  | ,  / ( ) ( )/' _ `\/' _ `\ /'__`\( '__)/',__)
 | |`\ |(  ___/| |_ | |\ \ | (_) || ( ) || ( ) |(  ___/| |   \__, \
 (_) (_)`\____)`\__)(_) (_)`\___/'(_) (_)(_) (_)`\____)(_)   (____/
-By Noor Shaheed, Datto, Kaseya. 07/20/2023      Netrunners TS tool V.01                                                                 
-                                                                  
-
+By Noor Shaheed, Datto, Kaseya. 07/20/2023      Netrunners TS tool V.01   
                                                                       
 EOF
 }
@@ -77,6 +80,7 @@ main() {
     run_traceroute_google
     run_nslookup_google
     check_temperature
+    check_uptime
 }
 
 # Call the main function
