@@ -66,20 +66,28 @@ run_speed_test() {
     iperf3 -R -c iperf.datto.icu -P 16
 }
 
+# Function to check Channels/Bands/TX Power using iw dev
+check_wifi_info() {
+    echo "-------------------------"
+    echo "Checking Channels/Bands/TX Power using iw dev..."
+    iw dev
+}
+
 # Function to display the design "Datto Netrunners"
 display_datto_netrunners() {
     cat << "EOF"
 
-  _   _   U _____ u  _____    ____      _   _   _   _     _   _   U _____ u   ____     ____     
- | \ |"|  \| ___"|/ |_ " _|U |  _"\ uU |"|u| | | \ |"|   | \ |"|  \| ___"|/U |  _"\ u / __"| u  
-<|  \| |>  |  _|"     | |   \| |_) |/ \| |\| |<|  \| |> <|  \| |>  |  _|"   \| |_) |/<\___ \/   
-U| |\  |u  | |___    /| |\   |  _ <    | |_| |U| |\  |u U| |\  |u  | |___    |  _ <   u___) |   
- |_| \_|   |_____|  u |_|U   |_| \_\  <<\___/  |_| \_|   |_| \_|   |_____|   |_| \_\  |____/>>  
- ||   \\,-.<<   >>  _// \\_  //   \\_(__) )(   ||   \\,-.||   \\,-.<<   >>   //   \\_  )(  (__) 
- (_")  (_/(__) (__)(__) (__)(__)  (__)   (__)  (_")  (_/ (_")  (_/(__) (__) (__)  (__)(__)      
+    )             (                                       
+ ( /(           ) )\ )                                    
+ )\())   (   ( /((()/(   (                   (   (        
+((_)\   ))\  )\())/(_)) ))\   (      (      ))\  )(   (   
+ _((_) /((_)(_))/(_))  /((_)  )\ )   )\ )  /((_)(()\  )\  
+| \| |(_))  | |_ | _ \(_))(  _(_/(  _(_/( (_))   ((_)((_) 
+| .` |/ -_) |  _||   /| || || ' \))| ' \))/ -_) | '_|(_-< 
+|_|\_|\___|  \__||_|_\ \_,_||_||_| |_||_| \___| |_|  /__/ 
+                                                          
+By Noor Shaheed, Datto, Kaseya. 07/20/2023      Netrunners TS tool V.01   
 
-By Noor Shaheed. Datto, Kaseya. 07/20/2023      Netrunners APs TS tool V.01   
-                                                                      
 EOF
 }
 
@@ -106,6 +114,8 @@ main() {
     check_error_logs
     echo "-------------------------"
     run_speed_test
+    echo "-------------------------"
+    check_wifi_info
 }
 
 # Call the main function
