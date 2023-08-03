@@ -59,6 +59,13 @@ check_error_logs() {
     logread | grep warn
 }
 
+# Function to run speed test using iperf3
+run_speed_test() {
+    echo "-------------------------"
+    echo "Running speed test..."
+    iperf3 -R -c iperf.datto.icu -P 16
+}
+
 # Function to display the design "Datto Netrunners"
 display_datto_netrunners() {
     cat << "EOF"
@@ -94,6 +101,8 @@ main() {
     check_uptime
     echo "-------------------------"
     check_error_logs
+    echo "-------------------------"
+    run_speed_test
 }
 
 # Call the main function
