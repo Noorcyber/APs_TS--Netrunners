@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Function to run port scan using nmap
-scan_ports() {
-    echo "-------------------------"
-    echo "Running port scan..."
-    # Add your nmap port scan command here
-    # Example: nmap -p 1-1000 -T4 <target_ip>
-    # Replace <target_ip> with the IP address you want to scan
-}
-
 # Function to ping 8.8.8.8
 ping_8_8_8_8() {
     echo "-------------------------"
@@ -77,7 +68,7 @@ display_datto_netrunners() {
 | , ` | /'__`\| |  | ,  / ( ) ( )/' _ `\/' _ `\ /'__`\( '__)/',__)
 | |`\ |(  ___/| |_ | |\ \ | (_) || ( ) || ( ) |(  ___/| |   \__, \
 (_) (_)`\____)`\__)(_) (_)`\___/'(_) (_)(_) (_)`\____)(_)   (____/
-By Noor Shaheed, Datto, Kaseya. 07/20/2023      Netrunners TS tool V.01  
+By Noor Shaheed, Datto, Kaseya. 07/20/2023      Netrunners TS tool V.01   
                                                                       
 EOF
 }
@@ -88,8 +79,6 @@ main() {
     display_datto_netrunners
 
     # Run the functions
-    scan_ports
-    echo "-------------------------"
     ping_8_8_8_8
     echo "-------------------------"
     run_mtr_test
